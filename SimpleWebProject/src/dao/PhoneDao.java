@@ -17,17 +17,18 @@ public class PhoneDao {
 	}
 
 	public void savePhone(Phone phone) throws SQLException {
-		String sql = "Insert into Phones (id, tradeMark, name) values(?,?,?) ";
+		String sql = "Insert into Phones (id, tradeMark, name, imagename) values(?,?,?,?) ";
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);
 		preparedStatement.setInt(1, getNewId());
 		preparedStatement.setString(2, phone.getTradeMark());
 		preparedStatement.setString(3, phone.getName());
+		preparedStatement.setString(4, phone.getImagename());
 		preparedStatement.executeUpdate();
 	}
 
 	public List<Phone> getAllPhone() throws SQLException {
 		List<Phone> result = new ArrayList<>();
-		String sql = "Select id, tradeMark, name From Phones";
+		String sql = "Select id, tradeMark, name, imagename From Phones";
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);
 		ResultSet resultSet = preparedStatement.executeQuery();
 		while (resultSet.next()) {
@@ -35,6 +36,7 @@ public class PhoneDao {
 			phone.setId(resultSet.getInt(1));
 			phone.setTradeMark(resultSet.getString(2));
 			phone.setName(resultSet.getString(3));
+			phone.setImagename(resultSet.getString(4));
 			result.add(phone);
 		}
 
@@ -42,7 +44,7 @@ public class PhoneDao {
 	}
 
 	public Phone getPhoneById(int phoneId) throws SQLException {
-		String sql = "Select id, tradeMark, name from Phones where id = ?";
+		String sql = "Select id, tradeMark, name, imagename from Phones where id = ?";
 		PreparedStatement preparedStatement = connection.prepareStatement(sql);
 		preparedStatement.setInt(1, phoneId);
 		ResultSet resultSet = preparedStatement.executeQuery();
@@ -51,6 +53,7 @@ public class PhoneDao {
 			phone.setId(resultSet.getInt(1));
 			phone.setTradeMark(resultSet.getString(2));
 			phone.setName(resultSet.getString(3));
+			phone.setImagename(resultSet.getString(4));
 			return phone;
 		}
 		
@@ -79,6 +82,7 @@ public class PhoneDao {
 		Phone exist = getPhoneById(phone.getId());
 		exist.setTradeMark(phone.getTradeMark());
 		exist.setName(phone.getName());
+		exist.setImagename(phone.getImagename());
 		deletePhone(phone.getId());
 		savePhone(exist);
 	}

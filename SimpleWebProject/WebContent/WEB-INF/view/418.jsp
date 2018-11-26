@@ -6,7 +6,8 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body>
+<body style="background-image: url('img/BG1.jpg')">
+	
 	<h1>I'm a teapot</h1>
 </body>
 </html>
