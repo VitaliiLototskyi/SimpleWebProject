@@ -1,0 +1,82 @@
+#bodyBackground {
+	background-image: url("/img/BG1.jpg");
+}
+
+#navbar {
+	border-radius: 30px;
+}
+
+.navbar-brand {
+	padding: 5px;
+}
+
+.icon {
+	padding-bottom: 5px;
+	margin-bottom: 0px;
+	border-radius: 10px;
+	width: 150px;
+	height: 100px;
+}
+
+#navItem1 {
+	border-right: 1px solid white;
+	border-left: 1px solid white;
+}
+
+.nav-item {
+	border-right: 1px solid white;
+}
+
+.nav-link {
+	border-right: 1px solid white
+}
+
+#thinkDifferent {
+	font-family: italic;
+	font-size: 70px;
+	text-align: center;
+}
+
+#divCarousel {
+	height: 40%;
+	margin-top: 1%;
+}
+
+#office {
+	width: 70%;
+	height: 400px;
+	margin-left: 15%
+}
+
+#firstRow {
+	margin-top: 10%;
+}
+
+#rows {
+	margin-top: 5px;
+}
+
+.table_block {
+	width: 80%;
+	border: 1px solid grey;
+	margin-top: 1%;
+	margin-bottom: 1%;
+	border-radius: 10px;
+	display: block;
+}
+
+#btnInList {
+	width: 60px;
+	margin-bottom: 5px
+}
+#btnInList:hover {
+    color: red;
+}
+
+#hover:hover {
+	color: red;
+}
+
+#btnExist {
+	margin-top: 1%;
+}

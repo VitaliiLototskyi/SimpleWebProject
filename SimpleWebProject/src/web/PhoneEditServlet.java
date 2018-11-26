@@ -63,6 +63,10 @@ public class PhoneEditServlet extends HttpServlet {
 		phone.setId(Integer.parseInt(request.getParameter("id")));
 		phone.setTradeMark(request.getParameter("tradeMark"));
 		phone.setName(request.getParameter("name"));
+		phone.setImagename(request.getParameter("imagename"));
+		if(request.getParameter("imagename").isEmpty()) {
+			phone.setImagename("nofoto.jpg");
+		}
 		try {
 			if (phone.getId() == -1) {
 				phoneDao.savePhone(phone);

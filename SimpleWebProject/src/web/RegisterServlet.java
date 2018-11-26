@@ -7,34 +7,60 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.UserDao;
+import entity.User;
+
 /**
  * Servlet implementation class RegisterServlet
  */
 @WebServlet("/RegisterServlet")
 public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public RegisterServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	UserDao userDao;
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @throws Exception
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	public RegisterServlet() throws Exception {
+		super();
+		userDao = new UserDao();
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		request.getRequestDispatcher("WEB-INF/view/register.jsp").forward(request, response);
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String userName = request.getParameter("name");
+		String userEmail = request.getParameter("email");
+		String password = request.getParameter("password");
+		User user = new User();
+		user.setName(userName);
+		user.setEmail(userEmail);;
+		user.setPassword(password);
+		try {
+			if (userDao.isUserExist(userEmail)) {
+				response.sendRedirect("UserExist");
+			} else {
+				userDao.saveUser(user);
+				response.sendRedirect("LoginServlet");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 	}
 
 }
