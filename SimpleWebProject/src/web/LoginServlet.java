@@ -44,11 +44,17 @@ public class LoginServlet extends HttpServlet {
 		String userPassword = request.getParameter("password");
 		try {
 			User user = userDao.getUser(userEmail, userPassword);
-			UserSession.addToSession(request, user.getEmail());
+			if (user == null) {
+				System.out.println("User doesnt exist");
+				request.getRequestDispatcher("WEB-INF/view/418.jsp").forward(request, response);
+			}
+			
+			UserSession.addToSession(String.valueOf(user.getId()), request);
+			request.setAttribute("user", userEmail);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		doGet(request, response);
+		response.sendRedirect("PhoneServlet");
 	}
 
 }

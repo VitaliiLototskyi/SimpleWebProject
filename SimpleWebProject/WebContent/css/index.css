@@ -43,9 +43,10 @@
 }
 
 #office {
-	width: 70%;
+	width: 100%;
 	height: 400px;
-	margin-left: 15%
+	margin-top: 2%;
+	margin-bottom: 3%;
 }
 
 #firstRow {
@@ -69,8 +70,9 @@
 	width: 60px;
 	margin-bottom: 5px
 }
+
 #btnInList:hover {
-    color: red;
+	color: red;
 }
 
 #hover:hover {
@@ -79,4 +81,38 @@
 
 #btnExist {
 	margin-top: 1%;
+}
+
+#erroPage {
+	margin-top: 5%;
+}
+
+#aboutText {
+	text-align: center;
+	font-family: cursive;
+}
+
+#divPic {
+	height: 175px;
+	margin-top: 5%;
+	margin-right: 3%;
+	margin-left: 3%;
+	margin-bottom: 20%;
+	text-align: center;
+}
+
+#paragraph{
+	margin-top: 15px; 
+	margin-bottom: 0px
+}
+.ceoPic{
+	border-radius: 30px;
+}
+#maps{
+	margin-top: 8%;
+	margin-bottom: 10%;
+}
+#desc{
+	margin-top: 12%;
+	margin-bottom: 10%;
 }

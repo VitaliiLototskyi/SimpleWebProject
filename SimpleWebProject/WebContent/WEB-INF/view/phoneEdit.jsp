@@ -21,19 +21,20 @@
 			<div class="row">
 				<div class="offset-md-4 col-md-4" id="rows">
 					<input type="text" name="tradeMark" value="${phone.tradeMark}"
-					placeholder="Enter tradeMark" class="form-control">
+					placeholder="Enter tradeMark" class="form-control" required="required">
 				</div>
 			</div>
 			<div class="row">
 				<div class="offset-md-4 col-md-4" id="rows">
 				 <input type="text" name="name"
-				value="${phone.name}" placeholder="Enter Name" class="form-control">
+				value="${phone.name}" placeholder="Enter Name" class="form-control" required="required">
 				</div>
 			</div>
 			<div class="row">
 				<div class="offset-md-4 col-md-4" id="rows">
-				 <input type="text" name="imagename"
-				value="${phone.imagename}" placeholder="Enter Image name" class="form-control">
+				Select File from the storage folder
+				 <input type="file" name="imagename"
+					value="${phone.imagename}" class="form-control btn btn-outline-dark" id="hover">
 				</div>
 			</div>
 			<div class="row">

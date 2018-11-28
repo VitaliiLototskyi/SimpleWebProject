@@ -46,16 +46,18 @@ public class FileUpload extends HttpServlet {
 			Files.createDirectory(Paths.get("storage"));
 		} catch (Exception e) {
 		}
-		Part filePart = request.getPart("fileData");
-		String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
-		InputStream fileContent = filePart.getInputStream();
-		byte[] buffer = new byte[fileContent.available()];
-		fileContent.read(buffer);
-		File targetFile = new File("storage/" + fileName);
-		System.out.println(targetFile.getAbsolutePath());
-		OutputStream outputStream = new FileOutputStream(targetFile);
-		outputStream.write(buffer);
-		System.out.println("Works!");
+		try {
+			Part filePart = request.getPart("fileData");
+			String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
+			InputStream fileContent = filePart.getInputStream();
+			byte[] buffer = new byte[fileContent.available()];
+			fileContent.read(buffer);
+			File targetFile = new File("storage/" + fileName);
+			OutputStream outputStream = new FileOutputStream(targetFile);
+			outputStream.write(buffer);
+		} catch (Exception e) {
+			request.getRequestDispatcher("WEB-INF/view/418.jsp").forward(request, response);
+		}
 	}
 
 }

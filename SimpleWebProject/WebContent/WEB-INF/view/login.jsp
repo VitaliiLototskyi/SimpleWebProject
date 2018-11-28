@@ -25,7 +25,7 @@
 			</div>
 			<div class="row" id="rows">
 				<div class="offset-md-4 col-md-4">
-					<label for="pwd">Password:</label> <input type="password"
+					<label for="password">Password:</label> <input type="password"
 						class="form-control" value="${user.password}" name="password"
 						placeholder="Password" required="required">
 				</div>

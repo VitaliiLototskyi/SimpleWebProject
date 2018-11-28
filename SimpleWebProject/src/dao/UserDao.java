@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import entity.Phone;
 import entity.User;
 
 public class UserDao {
@@ -71,5 +72,23 @@ public class UserDao {
 			return true;
 		}
 		return false;
+	}
+	
+	public User getUserById(int userId) throws SQLException {
+		String sql = "Select id, name ,email, password from User where id = ?";
+		PreparedStatement preparedStatement = connection.prepareStatement(sql);
+		preparedStatement.setInt(1, userId);
+		ResultSet resultSet = preparedStatement.executeQuery();
+		if( resultSet.next()) {
+			User user = new User();
+			user.setId(resultSet.getInt(1));
+			user.setName(resultSet.getString(2));
+			user.setEmail(resultSet.getString(3));
+			user.setPassword(resultSet.getString(4));
+			return user;
+		}
+		
+		return null;
+		
 	}
 }
