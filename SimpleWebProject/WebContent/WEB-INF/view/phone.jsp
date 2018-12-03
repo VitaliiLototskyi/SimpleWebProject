@@ -30,9 +30,14 @@
 </head>
 <body
 	style="background-image: url('img/BG1.jpg')">
+	<p id="nick">
+		<c:if test="${not empty nick}">
+   			<h7> Hello! ${nick}</h7>   
+		</c:if><br>
+		<a href="/SimpleWebProject/Logout" class="btn btn-outline-dark " id="logout" > &lArr; Logout</a>
+	</p>
 	<p>
 		<a href="/SimpleWebProject" class="btn btn-outline-dark " id="hover"> &lArr; Back to main menu</a>
-		<a href="/SimpleWebProject/Logout" class="btn btn-outline-dark " id="hover"> &lArr; Logout</a>
 	</p>
 	<a href="PhoneEditServlet" class="btn btn-outline-dark " id="hover"> &rArr; Add New Phone</a>
 		<div class=" offset-3 col-md-8 " >

@@ -55,6 +55,7 @@ public class FileUpload extends HttpServlet {
 			File targetFile = new File("storage/" + fileName);
 			OutputStream outputStream = new FileOutputStream(targetFile);
 			outputStream.write(buffer);
+			request.getRequestDispatcher("WEB-INF/view/succUpload.jsp").forward(request, response);
 		} catch (Exception e) {
 			request.getRequestDispatcher("WEB-INF/view/418.jsp").forward(request, response);
 		}

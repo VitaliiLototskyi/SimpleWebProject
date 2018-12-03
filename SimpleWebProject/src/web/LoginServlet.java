@@ -45,16 +45,14 @@ public class LoginServlet extends HttpServlet {
 		try {
 			User user = userDao.getUser(userEmail, userPassword);
 			if (user == null) {
-				System.out.println("User doesnt exist");
-				request.getRequestDispatcher("WEB-INF/view/418.jsp").forward(request, response);
+				String errMessage = "You have entered an invalid username or password";
+				request.setAttribute("errMessage", errMessage);
+		        request.getRequestDispatcher("WEB-INF/view/login.jsp").forward(request, response);
 			}
-			
 			UserSession.addToSession(String.valueOf(user.getId()), request);
 			request.setAttribute("user", userEmail);
+			response.sendRedirect("PhoneServlet");
 		} catch (Exception e) {
-			e.printStackTrace();
 		}
-		response.sendRedirect("PhoneServlet");
 	}
-
 }

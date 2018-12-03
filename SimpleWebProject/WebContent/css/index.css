@@ -40,6 +40,7 @@
 #divCarousel {
 	height: 40%;
 	margin-top: 1%;
+	margin-bottom: 2%;
 }
 
 #office {
@@ -101,18 +102,44 @@
 	text-align: center;
 }
 
-#paragraph{
-	margin-top: 15px; 
+#paragraph {
+	margin-top: 15px;
 	margin-bottom: 0px
 }
-.ceoPic{
+
+.ceoPic {
 	border-radius: 30px;
 }
-#maps{
+
+#maps {
 	margin-top: 8%;
 	margin-bottom: 10%;
 }
-#desc{
+
+#desc {
 	margin-top: 12%;
 	margin-bottom: 10%;
 }
+
+#logout{
+	float: right;
+}
+
+#logout:hover{
+	color: red;
+}
+
+#nick{
+	float: right;
+}
+#center{
+	text-align: center;
+}
+#copyright{
+	text-align: center;
+	margin-top: 20%;
+}
+
+
+
+

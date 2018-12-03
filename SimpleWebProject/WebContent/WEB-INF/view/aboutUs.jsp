@@ -92,7 +92,7 @@
 	</div>
 	<div class="row">
 		<div class="col">
-			<h2 style="text-align: center;">Location</h2>
+			<h2 id="center">Location</h2>
 		</div>
 	</div>
 	<div class="row">

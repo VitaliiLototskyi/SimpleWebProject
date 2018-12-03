@@ -52,7 +52,9 @@ public class RegisterServlet extends HttpServlet {
 		user.setPassword(password);
 		try {
 			if (userDao.isUserExist(userEmail)) {
-				response.sendRedirect("UserExist");
+				String errorMsg = "Looks like user with this email already exist!";
+				request.setAttribute("errorMsg", errorMsg);
+		        request.getRequestDispatcher("WEB-INF/view/register.jsp").forward(request, response);
 			} else {
 				userDao.saveUser(user);
 				response.sendRedirect("LoginServlet");

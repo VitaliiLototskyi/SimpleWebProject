@@ -46,12 +46,13 @@ public class PhoneServlet extends HttpServlet {
 		int id = Integer.parseInt(userId);
 		try {
 			User user = userDao.getUserById(id);
+			if (UserSession.isSessionValid(userId, request)) {
+				request.setAttribute("nick", user.getName());
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		if (UserSession.isSessionValid(userId, request)) {
-			
-		}
+		
 		List<Phone> phones = new ArrayList<Phone>();
 		try {
 			phones.addAll(phoneDao.getAllPhone());
